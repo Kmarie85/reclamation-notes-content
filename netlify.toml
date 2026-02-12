@@ -2,11 +2,16 @@
   publish = "."
 
 [[redirects]]
-  from = "/"
-  to = "/admin/"
-  status = 302
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/*"
+  to = "/index.html"
+  status = 200
 
 [[redirects]]
   from = "/*"
-  to = "/admin/index.html"
+  to = "/index.html"
   status = 200
