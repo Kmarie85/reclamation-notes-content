@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: Kmarie85/reclamation-notes-content
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "reclamation"
+    label: "Reclamation Notes"
+    folder: "notes"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Excerpt (optional)", name: "excerpt", widget: "text", required: false }
+      - { label: "Featured Image (optional)", name: "featuredImage", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
