@@ -8,5 +8,21 @@
   <body>
     <p>This site is the publishing dashboard for Reclamation Notes.</p>
     <p><a href="/admin/">Go to Admin</a></p>
+
+    <script>
+      // If we arrived here with a Netlify Identity token in the URL hash,
+      // forward it to /admin/ so the Identity widget can process it.
+      (function () {
+        const hash = window.location.hash || "";
+        const hasToken =
+          hash.includes("invite_token=") ||
+          hash.includes("recovery_token=") ||
+          hash.includes("confirmation_token=");
+
+        if (hasToken) {
+          window.location.replace("/admin/" + hash);
+        }
+      })();
+    </script>
   </body>
 </html>
